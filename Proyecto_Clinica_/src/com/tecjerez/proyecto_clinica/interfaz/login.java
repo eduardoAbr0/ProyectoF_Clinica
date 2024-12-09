@@ -106,18 +106,8 @@ public class login extends javax.swing.JFrame {
                 }
             }
         });
-    }
-    
-    private void formMousePressed(java.awt.event.MouseEvent evt) {                                  
-        x = evt.getX();
-        y = evt.getY();
-    }                                 
+    }                                
 
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {                                  
-        setLocation(evt.getXOnScreen()-x, evt.getYOnScreen()-y);
-    }    
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,6 +116,16 @@ public class login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setOpaque(true);
@@ -155,6 +155,15 @@ public class login extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        setLocation(evt.getXOnScreen()-x, evt.getYOnScreen()-y);
+    }//GEN-LAST:event_formMouseDragged
 
   
     public static void main(String args[]) {

@@ -5,6 +5,7 @@
 package com.tecjerez.proyecto_clinica.interfaz.Componentes_Graficos;
 
 import com.tecjerez.proyecto_clinica.interfaz.swim.ButtonOutLine;
+import com.tecjerez.proyecto_clinica.bd.conexionDB;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
@@ -15,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import javax.swing.JLabel;
 import net.miginfocom.swing.MigLayout;
+
 
 public class PanelCover extends javax.swing.JPanel {
     
@@ -36,7 +38,7 @@ public class PanelCover extends javax.swing.JPanel {
     }
     
     private void init(){
-        titulo = new JLabel("Bienvenido...");
+        titulo = new JLabel("Bienvenido");
         titulo.setFont(new Font("sansserif",1,30));
         titulo.setForeground(new Color(245,245,245));
         add(titulo);
@@ -56,6 +58,7 @@ public class PanelCover extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                event.actionPerformed(e);
+               conexionDB.getInstancia().getConexion();
             }
         });
         add(button,"w 60%, h 40");
@@ -127,11 +130,11 @@ public class PanelCover extends javax.swing.JPanel {
     public void login(boolean login){
         if (this.isLogin != login) {
             if (login) {
-                titulo.setText("Bienvenido...");
+                titulo.setText("Bienvenido");
                 descripcion1.setText("Ingresa datos para iniciar");
                 button.setText("Crear una cuenta de usuario");
             } else {
-                titulo.setText("Bienvenido...");
+                titulo.setText("Bienvenido");
                 descripcion1.setText("Ingresa datos para registro");
                 button.setText("Logear con cuenta");
             }
