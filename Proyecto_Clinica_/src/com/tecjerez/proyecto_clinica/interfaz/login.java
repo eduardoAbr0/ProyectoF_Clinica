@@ -39,7 +39,7 @@ public class login extends javax.swing.JFrame {
     private void init(){
         layout = new MigLayout("fill, insets 0");
         cover = new PanelCover();
-        loginReg = new PanelLoginRegister();
+        loginReg = new PanelLoginRegister(this);
         TimingTarget target = new TimingTargetAdapter(){
             @Override
             public void timingEvent(float fraction) {

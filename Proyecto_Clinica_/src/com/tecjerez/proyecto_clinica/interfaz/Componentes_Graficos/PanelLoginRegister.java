@@ -6,31 +6,43 @@ package com.tecjerez.proyecto_clinica.interfaz.Componentes_Graficos;
 
 import com.tecjerez.proyecto_clinica.interfaz.swim.ButtonC;
 import com.tecjerez.proyecto_clinica.interfaz.swim.MyTextField;
+import com.tecjerez.proyecto_clinica.bd.controlador.DBlogin;
+import com.tecjerez.proyecto_clinica.interfaz.main;
+import com.tecjerez.proyecto_clinica.interfaz.login;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import net.miginfocom.swing.MigLayout;
+import javax.swing.SwingUtilities;
 
 public class PanelLoginRegister extends javax.swing.JLayeredPane {
-      
-    public PanelLoginRegister() {
+
+    private DBlogin dbLog = new DBlogin();
+    private main ventanaP;
+    private JFrame parentFrame;
+    
+    public PanelLoginRegister(JFrame parentFrame) {
+        this.parentFrame = parentFrame;
         initComponents();
         initRegister();
         initLogin();
         login.setVisible(false);
         register.setVisible(true);
     }
-    
-    private void initRegister(){
-        register.setLayout(new MigLayout("wrap","push[center]push","push[]25[]10[]push"));
+
+    private void initRegister() {
+        register.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]push"));
         JLabel label = new JLabel("Crear cuenta");
-        label.setFont(new Font("sansserif",1,30));
+        label.setFont(new Font("sansserif", 1, 30));
         label.setForeground(new Color(153, 204, 255));
         register.add(label);
         MyTextField txtUser = new MyTextField();
@@ -43,15 +55,26 @@ public class PanelLoginRegister extends javax.swing.JLayeredPane {
         register.add(txtPassw, "w 60%");
         ButtonC cmd = new ButtonC();
         cmd.setBackground(new Color(153, 204, 255));
-        cmd.setForeground(new Color(250,250,250));
+        cmd.setForeground(new Color(250, 250, 250));
         cmd.setLabel("Crear usuario");
-        register.add(cmd,"w 40%, h 40");
+        register.add(cmd, "w 40%, h 40");
+
+        cmd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (txtUser.getText().isEmpty() || txtPassw.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Llena los campos");
+                } else {
+                    dbLog.registroUsuario(txtUser.getText(), txtPassw.getText());
+                }
+            }
+        });
     }
-    
-    private void initLogin(){
-        login.setLayout(new MigLayout("wrap","push[center]push","push[]25[]10[]push"));
+
+    private void initLogin() {
+        login.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]push"));
         JLabel label = new JLabel("Iniciar sesión");
-        label.setFont(new Font("sansserif",1,30));
+        label.setFont(new Font("sansserif", 1, 30));
         label.setForeground(new Color(153, 204, 255));
         login.add(label);
         MyTextField txtUser = new MyTextField();
@@ -64,21 +87,42 @@ public class PanelLoginRegister extends javax.swing.JLayeredPane {
         login.add(txtPassw, "w 60%");
         ButtonC cmd = new ButtonC();
         cmd.setBackground(new Color(153, 204, 255));
-        cmd.setForeground(new Color(250,250,250));
+        cmd.setForeground(new Color(250, 250, 250));
         cmd.setLabel("Entrar");
-        login.add(cmd,"w 40%, h 40");
+        login.add(cmd, "w 40%, h 40");
+
+        cmd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (txtUser.getText().isEmpty() || txtPassw.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Llena los campos");
+                } else {
+                    if (dbLog.encontrarUsuario(String.valueOf(txtUser.getText()), String.valueOf(txtPassw.getText()))) {
+                        ventanaP = new main();
+                        ventanaP.setVisible(true);
+                        cerrarPrincipal();
+                    }
+                }
+            }
+        });
     }
-    
-    public void showRegister(boolean show){
-        if(show){
+
+    public void showRegister(boolean show) {
+        if (show) {
             register.setVisible(true);
             login.setVisible(false);
-        }else{
+        } else {
             register.setVisible(false);
             login.setVisible(true);
         }
     }
     
+    public void cerrarPrincipal() {
+        if (parentFrame != null) {
+            parentFrame.dispose();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -119,7 +163,7 @@ public class PanelLoginRegister extends javax.swing.JLayeredPane {
         add(register, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel login;
     private javax.swing.JPanel register;

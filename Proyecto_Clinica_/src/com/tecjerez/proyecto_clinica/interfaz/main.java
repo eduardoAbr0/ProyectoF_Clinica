@@ -5,6 +5,7 @@
 package com.tecjerez.proyecto_clinica.interfaz;
 
 import com.tecjerez.proyecto_clinica.interfaz.event.EventMenu;
+import com.tecjerez.proyecto_clinica.interfaz.login;
 import com.tecjerez.proyecto_clinica.interfaz.form.Form;
 import com.tecjerez.proyecto_clinica.interfaz.form.Form_Citas;
 import com.tecjerez.proyecto_clinica.interfaz.form.Form_Diagnosticos;
@@ -22,16 +23,10 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
  
-
-/**
- *
- * @author ed308
- */
-
-
 public class main extends javax.swing.JFrame {
 
-    int x,y;
+    private int x,y;
+    private login lg;
     
     public main() {
         initComponents();
@@ -57,6 +52,11 @@ public class main extends javax.swing.JFrame {
                     showForm(new Form_Pagos());
                 }else if (index == 8) {
                     showForm(new Form_Reportes());
+                }else if (index == 9) {
+                    lg = new login();
+                    lg.setVisible(true);
+                    
+                    dispose();
                 } else {
                     showForm(new Form(index));
                 }
