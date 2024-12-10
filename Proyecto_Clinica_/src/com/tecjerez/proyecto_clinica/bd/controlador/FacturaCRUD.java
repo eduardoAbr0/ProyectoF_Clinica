@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class FacturaCRUD implements DAOFactura {
 
     @Override
-    public void insertar(Factura factura) throws SQLException {
+    public void insertar(Factura factura)  {
         String sql = "INSERT INTO factura(idFactura, Fecha_Emision, RFC) VALUES(?,?,?)";
         PreparedStatement preparedStatement = null;
 
@@ -44,7 +44,7 @@ public class FacturaCRUD implements DAOFactura {
     }
 
     @Override
-    public void actualizar(Factura factura) throws SQLException {
+    public void actualizar(Factura factura)  {
         String sql = "UPDATE factura SET Fecha_Emision = ?, RFC = ? WHERE idFactura = ?";
         PreparedStatement preparedStatement = null;
 
@@ -72,7 +72,7 @@ public class FacturaCRUD implements DAOFactura {
     }
 
     @Override
-    public void eliminar(Integer id) throws SQLException {
+    public void eliminar(Integer id)  {
         String sql = "DELETE FROM factura WHERE idFactura = ?";
         PreparedStatement preparedStatement = null;
 
@@ -108,7 +108,7 @@ public class FacturaCRUD implements DAOFactura {
     }
 
     @Override
-    public Factura buscar(Integer id) throws SQLException {
+    public Factura buscar(Integer id)  {
         String sql = "SELECT * FROM factura WHERE idFactura = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -142,7 +142,7 @@ public class FacturaCRUD implements DAOFactura {
     }
 
     @Override
-    public List<Factura> buscarTodos() throws SQLException {
+    public List<Factura> buscarTodos()  {
         String sql = "SELECT * FROM factura";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

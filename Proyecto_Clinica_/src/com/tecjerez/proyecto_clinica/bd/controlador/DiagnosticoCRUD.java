@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class DiagnosticoCRUD implements DAODiagnostico {
 
     @Override
-    public void insertar(Diagnostico diagnostico) throws SQLException {
+    public void insertar(Diagnostico diagnostico)  {
         String sql = "INSERT INTO diagnostico(idDiagnostico, Descripcion) VALUES(?, ?)";
         PreparedStatement preparedStatement = null;
         try {
@@ -38,7 +38,7 @@ public class DiagnosticoCRUD implements DAODiagnostico {
     }
 
     @Override
-    public void actualizar(Diagnostico diagnostico) throws SQLException {
+    public void actualizar(Diagnostico diagnostico)  {
         String sql = "UPDATE diagnostico SET Descripcion = ? WHERE idDiagnostico = ?";
         PreparedStatement preparedStatement = null;
 
@@ -65,7 +65,7 @@ public class DiagnosticoCRUD implements DAODiagnostico {
     }
 
     @Override
-    public void eliminar(Integer id) throws SQLException {
+    public void eliminar(Integer id)  {
         String sql = "DELETE FROM diagnostico WHERE idDiagnostico = ?";
         PreparedStatement preparedStatement = null;
 
@@ -99,7 +99,7 @@ public class DiagnosticoCRUD implements DAODiagnostico {
     }
 
     @Override
-    public Diagnostico buscar(Integer id) throws SQLException {
+    public Diagnostico buscar(Integer id) {
         String sql = "SELECT * FROM diagnostico WHERE idDiagnostico = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -134,7 +134,7 @@ public class DiagnosticoCRUD implements DAODiagnostico {
     }
 
     @Override
-    public List<Diagnostico> buscarTodos() throws SQLException {
+    public List<Diagnostico> buscarTodos()  {
         String sql = "SELECT * FROM diagnostico";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class PagoCRUD implements DAOPago {
 
     @Override
-    public void insertar(Pago pago) throws SQLException {
+    public void insertar(Pago pago)  {
         String sql = "INSERT INTO pago(idPago, Monto, Fecha_Pago, Metodo_Pago) VALUES(?, ?, ?, ?)";
         PreparedStatement preparedStatement = null;
         try {
@@ -39,7 +39,7 @@ public class PagoCRUD implements DAOPago {
     }
 
     @Override
-    public void actualizar(Pago pago) throws SQLException {
+    public void actualizar(Pago pago)  {
         String sql = "UPDATE pago SET Monto = ?, Fecha_Pago = ?, Metodo_Pago = ? WHERE idPago = ?";
         PreparedStatement preparedStatement = null;
 
@@ -68,7 +68,7 @@ public class PagoCRUD implements DAOPago {
     }
 
     @Override
-    public void eliminar(Integer id) throws SQLException {
+    public void eliminar(Integer id)  {
         String sql = "DELETE FROM pago WHERE idPago = ?";
         PreparedStatement preparedStatement = null;
 
@@ -105,7 +105,7 @@ public class PagoCRUD implements DAOPago {
     }
 
     @Override
-    public Pago buscar(Integer id) throws SQLException {
+    public Pago buscar(Integer id)  {
         String sql = "SELECT * FROM pago WHERE idPago = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -141,7 +141,7 @@ public class PagoCRUD implements DAOPago {
     }
 
     @Override
-    public List<Pago> buscarTodos() throws SQLException {
+    public List<Pago> buscarTodos()  {
         String sql = "SELECT * FROM pago";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.tecjerez.proyecto_clinica.bd.modelo;
 
 public class Paciente {
@@ -16,7 +12,7 @@ public class Paciente {
     private int telefono;
     private String fechaRegistro;
 
-    public Paciente(int id, String nombre, String Papellido, String Sapellido, String fechaNac, String sexo, String tipoSangre, String alergias, int telefono, String fechaRegistro) {
+    public Paciente(int id, String nombre, String Papellido, String Sapellido, String fechaNac, String sexo, String tipoSangre, String alergias, int telefono) {
         this.id = id;
         this.nombre = nombre;
         this.Papellido = Papellido;

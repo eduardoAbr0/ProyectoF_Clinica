@@ -15,7 +15,7 @@ import com.tecjerez.proyecto_clinica.interfaz.form.Form_Operaciones;
 import com.tecjerez.proyecto_clinica.interfaz.form.Form_Pacientes;
 import com.tecjerez.proyecto_clinica.interfaz.form.Form_Pagos;
 import com.tecjerez.proyecto_clinica.interfaz.form.Form_Partos;
-import com.tecjerez.proyecto_clinica.interfaz.form.Form_Reportes;
+import com.tecjerez.proyecto_clinica.interfaz.form.Form_Graficas;
 import java.awt.*;
 import java.awt.Component;
 import javax.swing.JDialog;
@@ -51,7 +51,7 @@ public class main extends javax.swing.JFrame {
                 }else if (index == 7) {
                     showForm(new Form_Pagos());
                 }else if (index == 8) {
-                    showForm(new Form_Reportes());
+                    showForm(new Form_Graficas());
                 }else if (index == 9) {
                     lg = new login();
                     lg.setVisible(true);

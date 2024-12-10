@@ -16,19 +16,31 @@ import java.util.ArrayList;
 public class PartoCRUD implements DAOParto {
 
     @Override
-    public void insertar(Parto parto) throws SQLException {
-        String sql = "INSERT INTO parto(idParto, Fecha_Parto, Hora_Parto, Tipo_Parto, Observaciones) VALUES(?,?,?,?,?)";
+    public void insertar(Parto parto) {
+        String sql = "INSERT INTO clinica.parto(Fecha_Parto, Hora_Parto, Tipo_Parto, Observaciones, Paciente_idPaciente) VALUES(?,?,?,?,?); SELECT SCOPE_IDENTITY();";
+        String sqlEmpleadoParto = "INSERT INTO Empleado_has_parto (Empleado_idEmpleado, Parto_idParto, Parto_Paciente_idPaciente) VALUES (?, ?, ?)";
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = conexionDB.getInstancia().getConexion().prepareStatement(sql);
-            preparedStatement.setInt(1, parto.getId());
-            preparedStatement.setString(2, parto.getFechaParto());
-            preparedStatement.setString(3, parto.getHora());
-            preparedStatement.setString(4, parto.getTipo());
-            preparedStatement.setString(5, parto.getObservaciones());
+            preparedStatement.setString(1, parto.getFechaParto());
+            preparedStatement.setString(2, parto.getHora());
+            preparedStatement.setString(3, parto.getTipo());
+            preparedStatement.setString(4, parto.getObservaciones());
+            preparedStatement.setInt(5, parto.getIdPaciente());
 
-            if (preparedStatement.executeUpdate() >= 1) {
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int idParto = rs.getInt(1);
                 JOptionPane.showMessageDialog(null, "Parto agregado correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+
+                try {
+                    preparedStatement = conexionDB.getInstancia().getConexion().prepareStatement(sql);
+                    preparedStatement.setInt(1, parto.getIdEmpleado());
+                    preparedStatement.setInt(2, idParto);
+                    preparedStatement.setInt(3, parto.getIdPaciente());
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error SQL", "Mensaje", JOptionPane.ERROR_MESSAGE);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -45,7 +57,7 @@ public class PartoCRUD implements DAOParto {
     }
 
     @Override
-    public void actualizar(Parto parto) throws SQLException {
+    public void actualizar(Parto parto) {
         String sql = "UPDATE parto SET Fecha_Parto = ?, Hora_Parto = ?, Tipo_Parto = ?, Observaciones = ? WHERE idParto = ?";
         PreparedStatement preparedStatement = null;
 
@@ -75,7 +87,7 @@ public class PartoCRUD implements DAOParto {
     }
 
     @Override
-    public void eliminar(Integer id) throws SQLException {
+    public void eliminar(Integer id) {
         String sql = "DELETE FROM parto WHERE idParto = ?";
         PreparedStatement preparedStatement = null;
 
@@ -112,7 +124,7 @@ public class PartoCRUD implements DAOParto {
     }
 
     @Override
-    public Parto buscar(Integer id) throws SQLException {
+    public Parto buscar(Integer id) {
         String sql = "SELECT * FROM parto WHERE idParto = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -146,7 +158,7 @@ public class PartoCRUD implements DAOParto {
     }
 
     @Override
-    public List<Parto> buscarTodos() throws SQLException {
+    public List<Parto> buscarTodos() {
         String sql = "SELECT * FROM parto";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

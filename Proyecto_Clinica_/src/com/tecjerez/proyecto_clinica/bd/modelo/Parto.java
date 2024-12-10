@@ -6,6 +6,8 @@ public class Parto {
     private String hora;
     private String tipo ;
     private String observaciones;
+    private int idPaciente;
+    private int idEmpleado;
 
     public Parto(int id, String fechaParto, String hora, String tipo, String observaciones) {
         this.id = id;
@@ -53,6 +55,22 @@ public class Parto {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public int getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
     
     

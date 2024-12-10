@@ -12,7 +12,7 @@ public class Empleado {
     private int telefono;
     private String tipoEmpleado;
 
-    public Empleado(int id, String nombre, String papellido, String sapellido, int numeroCasa, String calle, String colonia, int cp, int telefono, String tipoEmpleado) {
+    public Empleado(int id, String nombre, String papellido, String sapellido,String calle, int numeroCasa, String colonia, int cp, int telefono, String tipoEmpleado) {
         this.id = id;
         this.nombre = nombre;
         this.Papellido = papellido;

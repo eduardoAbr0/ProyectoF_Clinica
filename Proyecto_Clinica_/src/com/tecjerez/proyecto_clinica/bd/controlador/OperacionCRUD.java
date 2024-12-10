@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class OperacionCRUD implements DAOOperacion {
 
     @Override
-    public void insertar(Operacion operacion) throws SQLException {
+    public void insertar(Operacion operacion)  {
         String sql = "INSERT INTO operacion(idOPeracion, Tipo_Operacion, Fecha_Operacion, Duracion, Observaciones, Costo_Operacion) VALUES(?,?,?,?,?,?)";
         PreparedStatement preparedStatement = null;
         try {
@@ -42,7 +42,7 @@ public class OperacionCRUD implements DAOOperacion {
     }
 
     @Override
-    public void actualizar(Operacion operacion) throws SQLException {
+    public void actualizar(Operacion operacion)  {
         String sql = "UPDATE operacion SET Tipo_Operacion = ?, Fecha_Operacion = ?, Duracion = ?, Observaciones = ?, Costo_Operacion = ? WHERE ID_Operacion = ?";
         PreparedStatement preparedStatement = null;
 
@@ -73,7 +73,7 @@ public class OperacionCRUD implements DAOOperacion {
     }
 
     @Override
-    public void eliminar(Integer id) throws SQLException {
+    public void eliminar(Integer id)  {
         String sql = "DELETE FROM operacion WHERE idOperacion = ?";
         PreparedStatement preparedStatement = null;
 
@@ -111,7 +111,7 @@ public class OperacionCRUD implements DAOOperacion {
     }
 
     @Override
-    public Operacion buscar(Integer id) throws SQLException {
+    public Operacion buscar(Integer id)  {
         String sql = "SELECT * FROM operacion WHERE idOperacion = ?";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -145,7 +145,7 @@ public class OperacionCRUD implements DAOOperacion {
     }
 
     @Override
-    public List<Operacion> buscarTodos() throws SQLException {
+    public List<Operacion> buscarTodos()  {
         String sql = "SELECT * FROM operacion";
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
