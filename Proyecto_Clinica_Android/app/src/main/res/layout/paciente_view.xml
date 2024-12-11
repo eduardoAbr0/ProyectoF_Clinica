@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <ImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:id="@+id/imageViewPaciente"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        />
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:id="@+id/txtviewIDPaciente"
+        android:textSize="16dp"
+        tools:text="ID"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewIDPaciente"
+        android:id="@+id/txtviewNombre"
+        tools:text="Nombre"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewNombre"
+        android:id="@+id/txtviewApellido1"
+        tools:text="Primer apellido"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewApellido1"
+        android:id="@+id/txtviewApellido2"
+        tools:text="Segundo apellido"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewApellido2"
+        android:id="@+id/txtviewFechaNac"
+        tools:text="Fecha nacimiento"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewFechaNac"
+        android:id="@+id/txtviewSexo"
+        tools:text="Sexo"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewSexo"
+        android:id="@+id/txtviewSangre"
+        tools:text="Tipo de sangre"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewSangre"
+        android:id="@+id/txtviewTelefono"
+        tools:text="Telefono"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewPaciente"
+        android:layout_below="@id/txtviewTelefono"
+        android:id="@+id/txtviewAlergias"
+        tools:text="Alergias"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_below="@+id/txtviewAlergias"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
