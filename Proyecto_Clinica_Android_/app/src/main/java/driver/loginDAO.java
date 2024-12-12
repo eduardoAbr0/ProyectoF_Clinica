@@ -19,6 +19,6 @@ public interface loginDAO {
 
     //CONSULTAS
     @Query("SELECT * FROM Login WHERE usuario=:u")
-    public int busquedaByID(String u);
+    public Login busquedaByID(String u);
 
 }

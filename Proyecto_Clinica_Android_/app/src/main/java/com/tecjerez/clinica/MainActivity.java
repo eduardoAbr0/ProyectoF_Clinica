@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.log), (v, insets) -> {
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
             i = new Intent(this, empleadoActivity.class);
         }else if(v.getId() == R.id.btnPaciente){
             i = new Intent(this, pacienteActivity.class);
+        }else if(v.getId() == R.id.btnLogout){
+            finish();
+            i = new Intent(this, loginResActivity.class);
+        }else if(v.getId() == R.id.btnSalir){
+            finishAffinity();
+            System.exit(0);
         }
 
         startActivity(i);

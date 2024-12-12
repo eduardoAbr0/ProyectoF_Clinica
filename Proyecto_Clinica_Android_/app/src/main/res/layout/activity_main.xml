@@ -253,11 +253,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:text="@string/btn_logOut"
-            app:backgroundTint="@null"
             android:layout_margin="16dp"
-            />
+            android:layout_weight="1"
+            android:onClick="abrirActivities"
+            android:text="@string/btn_logOut"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnSalir"
@@ -265,10 +265,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_margin="16dp"
             android:layout_weight="1"
+            android:onClick="abrirActivities"
             android:text="@string/btn_Salir"
-            app:backgroundTint="@null"
-            android:layout_margin="16dp"/>
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
