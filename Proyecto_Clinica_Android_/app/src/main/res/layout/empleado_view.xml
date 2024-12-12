@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:id="@+id/imageViewEmpleado"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="45dp"
+        />
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:id="@+id/txtviewIDEmpleado"
+        android:textSize="16dp"
+        tools:text="ID"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewIDEmpleado"
+        android:id="@+id/txtviewNombreEmpleado"
+        tools:text="Nombre"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewNombreEmpleado"
+        android:id="@+id/txtviewApellido1Empleado"
+        tools:text="Primer apellido"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewApellido1Empleado"
+        android:id="@+id/txtviewApellido2Empleado"
+        tools:text="Segundo apellido"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewApellido2Empleado"
+        android:id="@+id/txtviewCalle"
+        tools:text="Calle"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewCalle"
+        android:id="@+id/txtviewNumcasa"
+        tools:text="Numero casa"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewNumcasa"
+        android:id="@+id/txtviewColonia"
+        tools:text="Colonia"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewColonia"
+        android:id="@+id/txtviewCP"
+        tools:text="CP"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewCP"
+        android:id="@+id/txtviewTelefonoEmpleado"
+        tools:text="Telefono"/>
+
+    <TextView
+        style="@style/recyclerTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewEmpleado"
+        android:layout_below="@id/txtviewTelefonoEmpleado"
+        android:id="@+id/txtviewPuesto"
+        tools:text="Puesto"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_below="@+id/txtviewPuesto"
+        android:layout_marginTop="10dp"/>
+
+
+</RelativeLayout>
